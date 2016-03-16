@@ -1,56 +1,43 @@
 'use strict';
 
-var answerToLife = 42;
-if (true) {
-  var answerToLife = -1;
-  console.log(answerToLife);
-}
-console.log(answerToLife);
+let users = [
+  { id: 1, name: "Tony Stark" },
+  { id: 2, name: "Bruce Banner" },
+  { id: 3, name: "Steve Rogers" }
+];
 
-// let answerToLife = 5;
+let ids = users.map(user => user.id);
+console.log(ids);
 
-debugger;
-
-fail = "I'll create a GUI interface using Visual Basic, see if I can track an IP Address";
-var fail;
-console.log(fail);
-
-home = "127.0.0.1";
-console.log(home);
-let home;
-console.log(home);
+let idsFn = users.map(function(user) { return user.id; });
+console.log(idsFn);
 
 debugger;
 
-if (true) {
-  var value = true;
-}
-console.log(true);
-
-debugger;
-
-if (true) {
-  let lie = false;
-}
-// console.log(lie);
-
-debugger;
-
-let number = 100;
-for (let number = 0; number < 10; number++) {
-  if (number === 9) {
-    console.log('Inside for loop: ' + number);
+let ClickEvent = {
+  init: function() {
+    document.getElementById("action").addEventListener("click", function(event) {
+      console.log("click");
+      this.handleClick(event);
+    })
+  },
+  handleClick: function(event) {
+    console.log(event.x, event.y);
   }
 }
-console.log('Outside for loop: ' + number);
 
-debugger;
+ClickEvent.init();
 
-const maxUsers = 5;
-// maxUsers = 10;
-
-if (true) {
-  const reply = "Make it so";
-  console.log(reply);
+let ClickEventArrow = {
+  init: function() {
+    document.getElementById("action2").addEventListener("click", (event) => {
+      console.log("click arrow");
+      this.handleClick(event);
+    })
+  },
+  handleClick: function(event) {
+    console.log(event.x, event.y);
+  }
 }
-// console.log(reply);
+
+ClickEventArrow.init();
