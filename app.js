@@ -1,43 +1,18 @@
 'use strict';
 
-let users = [
-  { id: 1, name: "Tony Stark" },
-  { id: 2, name: "Bruce Banner" },
-  { id: 3, name: "Steve Rogers" }
-];
+import consoleWriter, {red as warning, blue, green}  from './consoleWriter';
 
-let ids = users.map(user => user.id);
-console.log(ids);
+consoleWriter('Plain black text');
 
-let idsFn = users.map(function(user) { return user.id; });
-console.log(idsFn);
+warning("red text");
 
-debugger;
+blue("blue text");
 
-let ClickEvent = {
-  init: function() {
-    document.getElementById("action").addEventListener("click", function(event) {
-      console.log("click");
-      this.handleClick(event);
-    })
-  },
-  handleClick: function(event) {
-    console.log(event.x, event.y);
-  }
-}
+import * as writer from './consoleWriter';
 
-ClickEvent.init();
+writer.default("plain");
+writer.red("Colored");
 
-let ClickEventArrow = {
-  init: function() {
-    document.getElementById("action2").addEventListener("click", (event) => {
-      console.log("click arrow");
-      this.handleClick(event);
-    })
-  },
-  handleClick: function(event) {
-    console.log(event.x, event.y);
-  }
-}
 
-ClickEventArrow.init();
+// green("green text")
+// writer.green("text");
